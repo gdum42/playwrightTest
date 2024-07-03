@@ -1,9 +1,10 @@
-import { test, expect } from '@playwright/test'
+import { test } from '@playwright/test'
 
 test.describe('testing Playwright', () => {
   test('has title', async ({ page }) => {
-    await page.goto('https://playwright.dev/')
-  
-    await expect(page).toHaveTitle(/Playwright/)
+    await page.goto('/')
+    await page.locator('input[name=username]').fill(process.env.SIGNIN_USERNAME)
+    await page.locator('input[name=password]').fill(process.env.SIGNIN_PASSWORD)
+    await page.locator('input[type=submit]').click()
   })
 })

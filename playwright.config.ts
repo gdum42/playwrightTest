@@ -1,6 +1,7 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test'
 
 export default defineConfig({
+  globalSetup: './config/globalSetup.ts',
   testDir: './tests',
   fullyParallel: true,
 
@@ -28,4 +29,4 @@ export default defineConfig({
       use: { ...devices['Desktop Safari'] },
     },
   ],
-});
+})
